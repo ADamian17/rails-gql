@@ -1,0 +1,6 @@
+mutation AddMessage {
+  addMessage(input: {body: "new message"}) {
+    id
+    body
+  }
+}

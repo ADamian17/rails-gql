@@ -1,6 +1,7 @@
 class GraphqlChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "graphql:#{params[:channel]
+    p params[:channel]
+    stream_from "graphql:#{params[:channel]}"
   end
 
   def unsubscribed

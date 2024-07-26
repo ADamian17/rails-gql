@@ -1,0 +1,6 @@
+subscription MessageAdded {
+  messageAdded {
+    id
+    body
+  }
+}

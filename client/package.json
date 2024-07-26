@@ -3,20 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"next,codegen\" -c \"cyan,green\" \"npm run dev:next\" \"npm run gen:watch\"",
+    "dev:next": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen:watch": "graphql-codegen --config codegen.ts --watch",
+    "gen:types": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@anycable/web": "^0.9.0",
+    "graphql": "^16.9.0",
+    "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.3.2",
+    "@parcel/watcher": "^2.4.1",
     "@types/node": "^20",
     "@types/react": "^18",
-    "@types/react-dom": "^18"
+    "@types/react-dom": "^18",
+    "concurrently": "^8.2.2",
+    "graphql-codegen-apollo-next-ssr": "^1.7.4",
+    "prettier": "^3.3.3",
+    "sass": "^1.77.8",
+    "typescript": "^5"
   }
 }
