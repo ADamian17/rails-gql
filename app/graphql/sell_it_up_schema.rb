@@ -10,7 +10,7 @@ class SellItUpSchema < GraphQL::Schema
 
   use GraphQL::Batch
 
-  use GraphQL::Subscriptions::ActionCableSubscriptions
+  use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
 
   # GraphQL-Ruby calls this when something goes wrong while running a query:
   def self.type_error(err, context)

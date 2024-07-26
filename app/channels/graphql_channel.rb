@@ -11,10 +11,10 @@ class GraphqlChannel < ApplicationCable::Channel
     query = data["query"]
     variables = ensure_hash(data["variables"])
     context = {
-      current_user: current_user,
+      # current_user: current_user,
       channel: self
     }
-    result = MyappSchema.execute(query, variables: variables, context: context)
+    result = SellItUpSchema.execute(query, variables: variables, context: context)
     transmit(result: result.to_h)
   end
 
