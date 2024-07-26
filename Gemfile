@@ -41,6 +41,8 @@ gem 'graphql-batch'
 
 gem 'graphiql-rails', group: :development
 
+gem "sprockets-rails", "~> 3.5"
+
 gem 'jwt'
 
 group :development, :test do
