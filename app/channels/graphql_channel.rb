@@ -12,7 +12,7 @@ class GraphqlChannel < ApplicationCable::Channel
     query = data["query"]
     variables = ensure_hash(data["variables"])
     context = {
-      # current_user: current_user,
+      current_user: current_user,
       channel: self
     }
     result = SellItUpSchema.execute(query, variables: variables, context: context)
@@ -32,5 +32,13 @@ class GraphqlChannel < ApplicationCable::Channel
     else
       raise ArgumentError, "Unexpected parameter: #{ambiguous_param}"
     end
+  end
+
+  def current_user
+    token = request.headers[:Authorization].to_s.split(' ').last
+
+    return unless token
+    decoded_token = JWT.decode(token, 'secret', true, algorithm: 'HS256')
+    User.find(decoded_token[0]['user_id'])
   end
 end
