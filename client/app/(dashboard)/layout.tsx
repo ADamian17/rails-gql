@@ -1,4 +1,4 @@
-// import LogoutCta from "@/components/LogoutCta/LogoutCta";
+import LogoutCta from "@/components/LogoutCta/LogoutCta";
 import { DashboardLayout } from "@/layouts/DashboardLayout/DashboardLayout";
 
 export default function RootLayout({
@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <DashboardLayout>
+    <DashboardLayout logoutCta={<LogoutCta />}>
       {children}
     </DashboardLayout>
   );

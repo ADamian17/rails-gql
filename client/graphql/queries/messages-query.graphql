@@ -1,4 +1,4 @@
-query AllMessagesQuery {
+query AllMessages {
   messages {
     id
     body

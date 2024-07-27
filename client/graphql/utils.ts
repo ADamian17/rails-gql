@@ -1,5 +1,5 @@
 import { TypedDocumentString } from "@/__generated__/graphql";
-// import { auth } from "@/auth";
+import { auth } from "@/auth";
 import { GraphQLError } from "graphql";
 
 type GQLResponse<GraphQLData> =
@@ -20,11 +20,11 @@ export const executeApiReq = async <Result, Variables>(
   };
 
   /* NOTE ==   get stored token to send it with the request    == */
-  // const session = await auth();
+  const session = await auth();
 
-  // if (session?.user && "signedJwt" in session.user) {
-  //   headers["Authorization"] = `Bearer ${session.user.signedJwt}`;
-  // }
+  if (session?.user && "signedJwt" in session.user) {
+    headers["Authorization"] = `Bearer ${session.user.signedJwt}`;
+  }
   /* ============================================================ */
 
   const response = await fetch(process.env.NEXT_PUBLIC_GRAPHQL_API_URL!, {
