@@ -2,6 +2,9 @@ development:
   adapter: redis
   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: sell_it_up_development
+  allowed_request_origins: 
+    - http://localhost:3000
+    - http://localhost:3001
 
 test:
   adapter: test
