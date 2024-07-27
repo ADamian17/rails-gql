@@ -1,5 +1,5 @@
-mutation AddMessage {
-  addMessage(input: {body: "new message"}) {
+mutation CreateMessage($body: String!) {
+  createMessage(input: { body: $body }) {
     id
     body
   }

@@ -1,0 +1,5 @@
+mutation DeleteLink($id: ID!) {
+  deleteLink(input: { id: $id }) {
+    id
+  }
+}

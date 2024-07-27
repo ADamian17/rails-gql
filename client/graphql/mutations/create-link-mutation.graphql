@@ -1,0 +1,5 @@
+mutation CreateLink($description: String!, $url: String!) {
+  createLink(input: { description: $description, url: $url }) {
+    id
+  }
+}

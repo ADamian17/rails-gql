@@ -1,0 +1,10 @@
+query AllMessagesQuery {
+  messages {
+    id
+    body
+    sentBy {
+      id
+      name
+    }
+  }
+}

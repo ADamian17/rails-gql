@@ -1,0 +1,10 @@
+query AllLinks {
+  links {
+    id
+    description
+    url
+    postedBy {
+      name
+    }
+  }
+}
