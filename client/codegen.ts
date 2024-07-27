@@ -11,13 +11,14 @@ const config: CodegenConfig = {
   generates: {
     "__generated__/": {
       preset: "client",
-      plugins: ["typescript", "typescript-operations"],
       config: {
         avoidOptionals: true,
         documentMode: "string",
         skipTypename: true,
         dedupeOperationSuffix: true,
         preResolveTypes: true,
+        ignoreNoDocuments: true,
+        futureProofEnums: true,
       },
       presetConfig: {
         dedupeFragments: true,
