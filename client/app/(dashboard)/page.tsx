@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { AllLinksDocument } from '@/__generated__/graphql';
 import { executeApiReq } from '@/graphql/utils';
 import { Table, TableTr, TableScrollContainer, TableThead, TableTh, TableTbody, Container, Space } from '@mantine/core';
+import consumer from '@/lib/cable';
 
 const CreateLinkForm = dynamic(() => import('@/components/CreateLinkForm'));
 const LinkRow = dynamic(() => import('@/components/LinkRow'));
@@ -10,6 +11,17 @@ const LinkRow = dynamic(() => import('@/components/LinkRow'));
 const DashboardPage = async () => {
   const data = await executeApiReq(AllLinksDocument);
   const rows = data.links.map((item) => (<LinkRow key={item.id} item={item} />));
+  consumer.subscriptions.create({ channel: "GraphqlChannel" }, {
+    connected() {
+      console.log("Connected to GraphqlChannel");
+    },
+    disconnected() {
+      console.log("Disconnected from GraphqlChannel");
+    },
+    received(data) {
+      console.log("Received data from GraphqlChannel", data);
+    }
+  })
 
   return (
     <Container pt={80} flex={10}>

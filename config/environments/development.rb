@@ -68,6 +68,8 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
-  config.action_cable.url = 'ws://localhost:3001/cable' # or wss://your-domain.com/cable for production
-  config.action_cable.allowed_request_origins = ['http://localhost:3000', /http:\/\/localhost:\d+/]
+  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/, /file:\/\/*/, 'http://localhost:3000', 'http://localhost:3001']
+  config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.url = 'ws://localhost:3001/cable'
+  config.action_cable.mount_path = '/cable'
 end
