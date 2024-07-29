@@ -11,17 +11,6 @@ const LinkRow = dynamic(() => import('@/components/LinkRow'));
 const DashboardPage = async () => {
   const data = await executeApiReq(AllLinksDocument);
   const rows = data.links.map((item) => (<LinkRow key={item.id} item={item} />));
-  consumer.subscriptions.create({ channel: "GraphqlChannel" }, {
-    connected() {
-      console.log("Connected to GraphqlChannel");
-    },
-    disconnected() {
-      console.log("Disconnected from GraphqlChannel");
-    },
-    received(data) {
-      console.log("Received data from GraphqlChannel", data);
-    }
-  })
 
   return (
     <Container pt={80} flex={10}>
