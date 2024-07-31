@@ -23,6 +23,7 @@
     "@mantine/modals": "^7.11.2",
     "@mantinex/mantine-logo": "^1.0.1",
     "@tabler/icons-react": "^3.11.0",
+    "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.1.7",
     "graphql": "^16.9.0",
     "lodash": "^4.17.21",

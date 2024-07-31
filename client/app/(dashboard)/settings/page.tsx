@@ -1,11 +1,12 @@
-import SearchBar from '@/components/SearchBar'
-import { Container } from '@mantine/core'
+import UpdateUser from '@/components/UpdateUser'
+import UserSettingsContainer from '@/containers/UserSettingsContainer'
+import { Container, Divider, Grid, GridCol, Group, Paper, Space, Text, Title } from '@mantine/core'
 import React from 'react'
 
 const DashboardPage = async () => {
   return (
     <Container pt={80} flex={10}>
-      <h1>Settings Page</h1>
+      <UserSettingsContainer />
     </Container>
   )
 }
