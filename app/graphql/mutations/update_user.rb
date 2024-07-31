@@ -6,15 +6,16 @@ module Mutations
 
     input_object_class Types::UserUpdateInputType
 
-    type Types::UserType, null: true
+    field :updated_user, Types::UserType, null: true
 
-    def resolve(**args)
-      # debugger
+    def resolve(args)
       user = context[:current_user]
 
-      user.update!(args)
+      user.update!(args.to_h)
 
-    rescue
+      { updated_user: user }
+
+    rescue ActiveRecord::RecordInvalid => e
       GraphQL::ExecutionError.new("Invalid input: #{user.errors.full_messages.join(', ')}")
     end
   end
