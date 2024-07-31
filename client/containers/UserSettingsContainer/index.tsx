@@ -15,7 +15,7 @@ const UserSettingsContainer: React.FC = async () => {
 
   return (
     <Paper shadow="xs" withBorder p="xl">
-      <UpdateUser />
+      <UpdateUser userData={{ name, email }} />
       <Divider h={20} />
 
       <Grid>
