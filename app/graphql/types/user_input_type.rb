@@ -11,4 +11,9 @@ module Types
     argument :email, String, required: false
     argument :password, String, required: false
   end
+
+  class UserUpdateInputType < Types::BaseInputObject
+    argument :email, String, required: false
+    argument :name, String, required: false
+  end
 end

@@ -20,5 +20,6 @@ module Types
 
     field :links, resolver: Resolvers::LinkResolver
     field :messages, resolver: Resolvers::MessageResolver
+    field :user, resolver: Resolvers::UserResolver
   end
 end
